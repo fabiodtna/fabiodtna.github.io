@@ -1,188 +1,692 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Currículo - Fábio Henrique Rodrigues da Silva</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    @media print {
-      body {
-        background: white;
-      }
-      a[href]:after {
-        content: none !important;
-      }
-      .no-print {
-        display: none !important;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./imagem/download.gif" type="image/x-icon">
+    <title>GR4lph</title>
+    <style>
+        body {
+            cursor: url('https://www.creativefabrica.com/wp-content/uploads/2021/04/05/Photo-Image-Icon-Graphics-10388619-1.jpg'), auto;
+            transition: transform 0.3s ease; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: auto; 
+            height: 100vh;
+            position: relative; 
+            background-color: #000; 
+        }
+
+        /* Estilo para o fundo da lua e estrelas */
+        .background {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden; 
+        }
+
+        .moon {
+            position: absolute;
+            right: 10%;
+            top: 10%; 
+            width: 15vw; 
+            height: 15vw;
+            background-image: url('https://www.publicdomainpictures.net/pictures/400000/velka/vollmond-mond-png-clipart.png');
+            background-size: cover;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #B0B0B0;
+            opacity: 0.5;
+            z-index: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Estilos para o cabeçalho */
+        header {
+            background-color: rgba(46, 46, 46, 1); 
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%; 
+            z-index: 2; 
+            position: relative;
+        }
+
+        #logoimg {
+            margin-left: 20px;
+            border-radius: 50%;
+            width: 75px;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+        a{
+         font-size: large;
+         font-weight: bold;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        /* Estilos para os contêineres */
+        .container {
+            display: flex;
+            position: relative;
+            margin: 20px 5%;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0);
+            color: white; 
+            padding: 20px; 
+            min-height: 200px; 
+            z-index: 1; 
+        }
+
+        /* Estilos para o conteúdo Home */
+        .home-content {
+            position: relative; 
+            z-index: 1; 
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 60%;
+        }
+
+        .home-content h1 {
+            margin-top: 0;
+            font-size: 2.5em;
+        }
+
+        .home-content p {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .sobre-content {
+            background-color: #4DB6AC;
+            border-radius: 30px;
+            padding: 20px; 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .about-me{  
+            padding: 10px;
+        }
+        
+        .about-me p {
+            font-size: large;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .about-me h2 {
+            color: #000;
+            text-align: center;
+        }
+
+
+
+        .content_cube{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            height: 35vh; 
+            color: white;
+        }
+        .img_cube{
+            max-width: 100%;
+            height: auto;
+            pointer-events: none;
+            user-select: none;
+            outline: none; /
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .scene {
+            width: 100px;
+            height: 100px;
+            perspective: 4000px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg) rotateY(-30deg);
+            transition: transform 0.3s ease;
+            cursor: grab;
+            animation: rotate 10s infinite linear;
+        }
+
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para os lados do cubo */
+        .front  { transform: rotateY(  0deg) translateZ(50px); }
+        .back   { transform: rotateY(180deg) translateZ(50px); }
+        .right  { transform: rotateY( 90deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .top    { transform: rotateX( 90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0) rotateY(0);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .face div {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #333; 
+            box-sizing:border-box;
+        }
+
+        .front div { background-color: red; } 
+        .back div { background-color: white; }  
+        .right div { background-color: yellow; }  
+        .left div { background-color: orangered; }   
+        .top div { background-color: blue; }   
+        .bottom div { background-color: green; } 
+        
+
+
+
+        .skills-container {
+            margin: 0 auto; 
+            display: grid;
+            width: 70%;
+            padding: 40px;
+        }
+
+        .skills-container {
+            text-align: center;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .skill {
+            margin-bottom: 2px; 
+        }
+        .skill h3{
+            color: #000;
+        }
+            /* barra de progresso */
+        .progress-bar {
+            background-color: #444; 
+            border-radius: 10px; 
+            overflow: hidden;
+            border: 2px solid black;
+        }
+            
+        .progress {
+            height: 30px; 
+            background-color: #1472ff; 
+            text-align: center; 
+            line-height: 30px; 
+            color: #000; 
+            border-radius:10px; 
+        }
+        .projetos{
+            width: 100%;
+        }
+        .projetos h2{
+            text-align: center;
+            font-weight: bold;
+        }
+        .grind_projeto {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center; 
+            justify-content: center; 
+            gap: 20px; 
+            padding: 20px; 
+        }
+        .grind_projeto div{
+            text-align: center;
+            height: 200px;
+            display: flex;
+            flex-direction: column; 
+            background-color: #1472ff;
+            align-items: center; 
+            background-color: #4DB6AC;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .projbtn{
+        width: 80%;
+        max-width: 400px;
+        height: 200px; 
+        display: flex; 
+        align-items: center; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        aspect-ratio: 3 / 3; 
+        padding: 20px; 
+        box-sizing: border-box; 
+        overflow: hidden; 
+        background-color: #f8f9fa; 
+        }
+
+        .projbtn:hover {
+            opacity: 0.9;
+        }
+
+        .projbtn:active {
+            opacity: 0.6; 
+        }
+        .button-text{
+            color: orangered;
+            font-size: 24px; 
+            text-align: center; 
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); 
+            background-color: rgba(0, 0, 0, 0.6); 
+            padding: 5px; 
+            border-radius: 5px;
+        }
+       
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(46, 46, 46, 0.8); 
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .div_contacts {
+            display: flex;
+            margin-left: 30px;
+        }
+        .div_contacts2{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;    
+            
+        }
+        .div_contacts2 div{
+            margin: 10px;
+        }
+        .imgfooter{
+            margin-left: 20px;
+            border-radius: 50%;
+            width: 45px;
+            height: auto;
+        }
+        .imgfooter:hover{
+            opacity: 0.9;
+        }
+
+        .imgfooter:hover {
+            opacity: 0.6; 
+        }
+
+        p{
+         font-size:medium;
+         font-weight:500;
+        }
+
+        /* responsividade */
+        @media (max-width: 768px) {
+            .moon {
+                width: 25vw; 
+                height: 25vw; 
+            }
+
+            header {
+                padding: 10px 2%; 
+            }
+
+            .home-content h1 {
+                font-size: 2em; 
+            }
+
+            .home-content p {
+                font-size: 1.2em;
+            }
+
+            .sobre-content {
+            background-color: #4DB6AC;
+            border-radius: 30px;
+            padding: 20px; 
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 10px;
+            }
+            .grind_projeto {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column; 
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column; 
+                width: 100%;
+                align-items: flex-start; 
+            }
+
+            nav ul li {
+                margin: 10px 0; 
+            }
+            .sobre-content {
+                background-color: #4DB6AC;
+                border-radius: 30px;
+                padding: 20px; 
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 10px;
+            }
+            .grind_projeto {
+                grid-template-columns: 1fr; 
+            }
+
+        }
+
+        
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <main class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 my-10 print:p-0 print:shadow-none print:rounded-none">
-    <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b-4 border-indigo-600 pb-4 mb-6">
-      <div>
-        <h1 class="text-4xl font-extrabold text-indigo-700">Fábio Henrique Rodrigues da Silva</h1>
-        <p class="text-xl font-semibold text-gray-700 mt-1">Desenvolvedor Full Stack</p>
-      </div>
-      <div class="mt-4 sm:mt-0 text-gray-700 text-sm sm:text-base space-y-1 sm:space-y-2">
-        <p class="flex items-center space-x-2">
-          <i class="fas fa-envelope text-indigo-600"></i>
-          <a href="mailto:fab10.dtna007@gmail.com" class="hover:underline text-indigo-700">fab10.dtna007@gmail.com</a>
-        </p>
-        <p class="flex items-center space-x-2">
-          <i class="fas fa-phone-alt text-indigo-600"></i>
-          <a href="tel:+5513982082174" class="hover:underline text-indigo-700">(13) 98208-2174</a>
-        </p>
-        <p class="flex items-center space-x-2">
-          <i class="fab fa-linkedin text-indigo-600"></i>
-          <a href="https://www.linkedin.com/in/fabio-gr-240b25184" target="_blank" rel="noopener noreferrer" class="hover:underline text-indigo-700 break-all">linkedin.com/in/fabio-gr-240b25184</a>
-        </p>
-      </div>
+<body>
+    <!-- Fundo da lua e estrelas -->
+    <div class="background">
+        <div class="moon"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="./imagem/download.gif" id="logoimg"/>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#container1">Home</a></li>
+                <li><a href="#container2">About Me</a></li>
+                <li><a href="#container3">Projects</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-600 pb-1 mb-4">Resumo Profissional</h2>
-      <p class="text-gray-800 leading-relaxed text-lg">
-        Desenvolvedor Full Stack com experiência no desenvolvimento de aplicações web e mobile utilizando tecnologias como <span class="font-semibold text-indigo-600">C#, React Native, PHP (Laravel), JavaScript, Vue.js e React</span>. Atua na criação de sistemas robustos e interfaces modernas, com foco em usabilidade, performance e integração eficiente com <span class="font-semibold text-indigo-600">APIs RESTful</span>.
-      </p>
-      <p class="mt-4 text-gray-800 leading-relaxed text-lg">
-        Formação técnica em Desenvolvimento de Sistemas, com cursos complementares nas áreas de <span class="font-semibold text-indigo-600">Pentest Profissional, inglês técnico e informática</span>. Possui também conhecimentos práticos em manutenção de equipamentos eletrônicos, instalação de sistemas de segurança (<span class="font-semibold text-indigo-600">CFTV, DVR, câmeras IP e alarmes</span>) e infraestrutura básica de TI.
-      </p>
-      <p class="mt-4 text-gray-800 leading-relaxed text-lg">
-        Profissional adaptável, com forte interesse por inovação e aprendizado contínuo. Valoriza o trabalho em equipe, a comunicação eficiente e a busca por soluções técnicas que gerem impacto real nos projetos.
-      </p>
-    </section>
+    <main>
+        <section id="container1" class="container">
+            <div class="home-content">
+                <h1>Hello, I'm Fábio!</h1>
+                <p> I believe in the power of technology to transform ideas into real, impactful solutions. With dedication and innovation,
+                    I seek to build a future where each project makes a difference to people and companies.</p>
+            </div>
+        </section>
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-600 pb-1 mb-4">Habilidades Técnicas</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-800 text-lg">
-        <div>
-          <h3 class="font-semibold text-indigo-600 mb-2">Linguagens de Programação</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>C#</li>
-            <li>PHP</li>
-            <li>JavaScript (JS)</li>
-            <li>C</li>
-            <li>Bash</li>
-            <li>JSX</li>
-            <li>Vue (template syntax)</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold text-indigo-600 mb-2">Front-End</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>Bootstrap</li>
-            <li>JavaScript com jQuery</li>
-            <li>Vue.js</li>
-            <li>React</li>
-            <li>React Native</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold text-indigo-600 mb-2">Desenvolvimento Mobile</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>React Native</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold text-indigo-600 mb-2">Back-End / Frameworks</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>PHP com Laravel</li>
-            <li>C# (Desenvolvimento de sistemas)</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold text-indigo-600 mb-2">Integração</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Consumo de APIs RESTful</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold text-indigo-600 mb-2">Banco de Dados</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>MySQL</li>
-          </ul>
-        </div>
-        <div class="sm:col-span-2">
-          <h3 class="font-semibold text-indigo-600 mb-2">Segurança da Informação</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Conhecimento em testes de invasão (Pentest – curso Desec 2600h)</li>
-          </ul>
-        </div>
-        <div class="sm:col-span-2">
-          <h3 class="font-semibold text-indigo-600 mb-2">Infraestrutura e Equipamentos</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Manutenção de equipamentos eletrônicos (computadores, roteadores, periféricos etc.)</li>
-            <li>Instalação e configuração de sistemas de segurança eletrônica (CFTV, câmeras IP, DVR/NVR, alarmes, sensores)</li>
-            <li>Conhecimento em redes, protocolos e cabeamento</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <section id="container2" class="container">
+            <div class="sobre-content">
+                <div class="about-me">
+                    <h2>About me</h2>
+                    <p>I am currently studying Computer Science, with experience in systems development and cybersecurity. I have experience in creating secure and efficient systems and have a special interest in emerging technologies. I'm always looking to improve myself and experiment with new technologies.
+                         I'm a full-stack programmer, so I can work on all phases of a project.  </p>
+                        <div class="content_cube">
+                    <div class="scene">
+                        <div class="cube" id="cube">
+                            <div class="face front">
+                                <div></div><div></div><div></div>
+                                <div></div><img class="img_cube" src="./imagem/download.gif"/><div></div><div></div>
+                                <div></div><div></div>
+                            </div>
+                            <div class="face back">
+                                <div></div><div></div><div></div>
+                                <div></div><img class="img_cube" src="./imagem/download.gif"/><div></div><div></div>
+                                <div></div><div></div>
+                            </div>
+                            <div class="face right">
+                                <div></div><div></div><div></div>
+                                <div></div><img class="img_cube" src="./imagem/download.gif"/><div></div><div></div>
+                                <div></div><div></div>
+                            </div>
+                            <div class="face left">
+                                <div></div><div></div><div></div>
+                                <div></div><img class="img_cube" src="./imagem/download.gif"/><div></div><div></div>
+                                <div></div><div></div>
+                            </div>
+                            <div class="face top">
+                                <div></div><div></div><div></div>
+                                <div></div><img class="img_cube" src="./imagem/download.gif"/><div></div><div></div>
+                                <div></div><div></div>
+                            </div>
+                            <div class="face bottom">
+                                <div></div><div></div><div></div>
+                                <div></div><img class="img_cube" src="./imagem/download.gif"/><div></div><div></div>
+                                <div></div><div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="skills-container">
+                    <h2>Skills</h2>
+                    <div class="skill">
+                        <h3>Web Development</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;">90%</div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Backend Development</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;">80%</div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Database</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%;">70%</div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Cybersecurity</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;">75%</div>
+                        </div>
+                    </div>
+                </div>
+        </section>
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-600 pb-1 mb-4">Habilidades Comportamentais</h2>
-      <ul class="list-disc list-inside text-gray-800 text-lg max-w-3xl mx-auto space-y-2">
-        <li>Facilidade de adaptação a novas tecnologias</li>
-        <li>Boa comunicação e trabalho em equipe</li>
-        <li>Proatividade e iniciativa</li>
-        <li>Foco em usabilidade e experiência do usuário (UX)</li>
-        <li>Comprometimento com resultados</li>
-        <li>Interesse por inovação e resolução de problemas técnicos</li>
-        <li>Resiliência em ambientes desafiadores</li>
-      </ul>
-    </section>
+        <section id="container3" class="container">
+            <div class="projetos">
+                <h2>Projetos</h2>
+                <div class="grind_projeto">
+                    <div class="projbtn"
+                    style="background-image: url('./imagem/netflix.jpg'); background-size: cover; background-position: center; "
+                    tabindex="0" role="button"  onclick="window.open('https://github.com/fabiodtna/filmes', '_blank')"> 
+                        <h3 class="button-text">APP Netfrix <hr>React-Native</h3>
+                    </div>
+                    <div class="projbtn"
+                    style="background-image: url('./imagem/THM.jpeg'); background-size: cover; background-position: center; "
+                    tabindex="0" role="button" onclick="window.open('https://tryhackme.com/r/p/GhostSans', '_blank')">
+                        <h3 class="button-text">TryHackMe Profile</h3>
+                    </div>
+                    <div class="projbtn"
+                    style="background-image: url('./imagem/tempo.jpg'); background-size: cover; background-position: center; "
+                    tabindex="0" role="button" onclick="window.open('https://github.com/fabiodtna/Tempo-Hoje', '_blank')">
+                        <h3 class="button-text">APP Tempo <hr>React-Native</h3>
+                    </div>
+                    <div class="projbtn"
+                        style="background-image: url('./imagem/notfound.png'); background-size: cover; background-position: center; "
+                        tabindex="0" role="button" >
+                        <p class="button-text">teste</p>
+                    </div>
+                    <div class="projbtn"
+                    style="background-image: url('./imagem/notfound.png'); background-size: cover; background-position: center; "
+                    tabindex="0" role="button" onclick="alert('Botão clicado!')">
+                        <p class="button-text">teste</p>
+                    </div>
+                    <div class="projbtn"
+                    style="background-image: url('./imagem/notfound.png'); background-size: cover; background-position: center; "
+                    tabindex="0" role="button" onclick="alert('Botão clicado!')">
+                        <p class="button-text">teste</p>
+                    </div>
+                </div>
+                
+            </div>
+           </section>
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-600 pb-1 mb-4">Formação Acadêmica</h2>
-      <ul class="text-gray-800 text-lg max-w-3xl mx-auto space-y-6">
-        <li>
-          <h3 class="font-semibold text-indigo-600 text-xl">Tecnólogo em Desenvolvimento de Sistemas</h3>
-          <p class="italic">ETEC Itanhaém-SP (2019–2020)</p>
-        </li>
-        <li>
-          <h3 class="font-semibold text-indigo-600 text-xl">Curso de Operador de Computador</h3>
-          <p class="italic">SENAC – 180 horas</p>
-        </li>
-      </ul>
-    </section>
+        <footer>
+            <div class="div_contacts">
+                <div class="div_contacts2"> 
+                    <div>
+                        <img 
+                        onclick="window.open('https://www.linkedin.com/in/fabio-hr-240b25184/', '_blank')"
+                        class="imgfooter" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0bGEl9v47XieEtHyj0TqTr1tOXJmib-KHtw&s"/>
+                        
+                        <img class="imgfooter" src="./imagem/download.gif"/>
+                    </div>       
+                    Contact: fab10.dtna007@gmail.com 
+                </div>
+            </div>
+            <p>&copy; 2024 Created By GR4lph</p>
+        </footer>
+    </main>
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-600 pb-1 mb-4">Cursos Extras</h2>
-      <ul class="text-gray-800 text-lg max-w-3xl mx-auto space-y-6">
-        <li>
-          <h3 class="font-semibold text-indigo-600 text-xl">Curso de Inglês Mario Vergara 5.0</h3>
-        </li>
-        <li>
-          <h3 class="font-semibold text-indigo-600 text-xl">Pentest Profissional Desec</h3>
-          <p class="italic">2600 horas</p>
-        </li>
-      </ul>
-    </section>
+    <script>
+        const numStars = 200;
+        const stars = [];
 
-    <section>
-      <h2 class="text-2xl font-bold text-indigo-700 border-b-2 border-indigo-600 pb-1 mb-4">Idiomas</h2>
-      <ul class="text-gray-800 text-lg max-w-3xl mx-auto space-y-2 list-disc list-inside">
-        <li><span class="font-semibold">Português:</span> Nativo</li>
-        <li><span class="font-semibold">Inglês:</span> Intermediário (Curso Mario Vergara 5.0)</li>
-      </ul>
-    </section>
-  </main>
+
+        document.querySelector('.cube').addEventListener('click', function() {
+            this.style.animation = 'none'; 
+        });
+
+        function createStars() {
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 6 + 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                let left, top;
+                do {
+                    left = Math.random() * window.innerWidth;
+                    top = Math.random() * window.innerHeight;
+                } while (left > window.innerWidth - 350 && top < 300);
+
+                star.style.left = `${left}px`;
+                star.style.top = `${top}px`;
+                star.style.opacity = Math.random() * 0.5 + 0.5;
+
+                // Adiciona as estrelas dentro do fundo
+                document.querySelector(".background").appendChild(star);
+                stars.push(star);
+            }
+        }
+
+        document.addEventListener("mousemove", (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            stars.forEach(star => {
+                const starX = parseFloat(star.style.left);
+                const starY = parseFloat(star.style.top);
+                const distance = Math.hypot(starX - mouseX, starY - mouseY);
+
+                if (distance < 150) {
+                    const angle = Math.atan2(starY - mouseY, starX - mouseX);
+                    const moveX = Math.cos(angle) * 10;
+                    const moveY = Math.sin(angle) * 10;
+
+                    star.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    star.style.opacity = 1;
+                    star.style.background = `#4d4dff`;
+                    star.style.width= 20;
+                } else {
+                    star.style.transform = `translate(0, 0)`;
+                    star.style.opacity = Math.random() * 0.5 + 0.5;
+                    star.style.background = `#fff`;
+                }
+            });
+        });
+
+        createStars();
+
+
+        const cube = document.getElementById('cube');
+    let isDragging = false;
+    let startX, startY;
+    let rotationX = -30, rotationY = -30;
+
+    cube.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        cube.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+            rotationY += deltaX * 0.5;
+            rotationX -= deltaY * 0.5;
+            cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        cube.style.cursor = 'grab';
+    });
+    </script>
 </body>
 </html>
