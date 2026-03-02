@@ -1,4 +1,3 @@
-
 :root {
   --cor-letra: #EEEEEE;
   --cor-letra-sec: rgba(7, 207, 216, 0.8);
@@ -7,47 +6,41 @@
   --cor-fundo-t-sec: rgba(0, 242, 255, 0.5);
   --cor-background: #0e182b;
 }
+
+/* ================= BASE ================= */
+
 #bodystyle{
-   background-color: var(--cor-background);
-   margin: 0;
+  background-color: var(--cor-background);
+  margin: 0;
 }
+
 .container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
+
+/* ================= HEADER ================= */
+
 #header{
   margin-top: 20px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-#linha-horizontal{  
-  top: 0;               
-  left: 0;
-  height: 1px;         
-  background-color:var(--cor-linha);
-  z-index: 9999; 
-}
-#linha-vertical {
-  position: fixed;    
-  top: 0;
-  left: 35%;        
-  width: 1px;         
-  height:100%;     
-  background-color: var(--cor-linha);
-  z-index: 9999;      
-}
-@media (max-width: 1800px) {
-  #linha-vertical {
-    height:315vh;    
-  }
-}
+
 #headerDop{
   text-align: end;
   color: var(--cor-letra);
 }
+
 #headerNome{
   font-weight: 500;
   color: var(--cor-letra);
 }
+
 #headerop {
   margin: 10px;
   font-size: medium;
@@ -55,308 +48,414 @@
   color: var(--cor-letra);
   text-decoration: none;
 }
+
+/* ================= LINHAS ================= */
+
+#linha-horizontal{
+  width: 100%;
+  height: 1px;
+  background-color:var(--cor-linha);
+}
+
+#linha-vertical {
+  position: fixed;
+  top: 0;
+  left: 35%;
+  width: 1px;
+  height:100vh;
+  background-color: var(--cor-linha);
+  z-index: 9999;
+}
+
+@media (max-width: 900px) {
+  #linha-vertical {
+    display: none;
+  }
+}
+
+/* ================= HOME ================= */
+
 #home{
   display: flex;
-  height: 50vw;
   justify-content: center;
   align-items: center;
+  padding: 100px 0;
 }
+
+#homedivall{
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  width: 100%;
+}
+
 #homeTi{
-  width: 70%;
-  margin-top: 20%;
+  flex: 1;
+  min-width: 300px;
+  margin-top: 10%;
 }
+
 #divghometxtbtn{
-  width: 400px;
-  height: 30%;
+  width: 100%;
 }
+
 #homeicon{
-  display: flex; 
-  flex-direction: row;
+  display: flex;
 }
+
 #hometxt1{
   color: var(--cor-letra);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: xxx-large;
+  font-size: clamp(18px, 4vw, 50px);
 }
+
 #hometxt2{
   color: var(--cor-letra-sec);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: bold;
+  font-size: clamp(10px, 2vw, 35px);
 }
-#hometxtbtn1{
-  padding: 5px;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight:bold;
-  border-radius: 20px;
-  color: var(--cor-letra);
-  background-color: var(--cor-fundo-t-sec);
-  text-align: center;
-  width: 30%;
-}
-#hometxtbtn2{
-  padding: 5px;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight:bold;
-  border-radius: 20px;
-  font-weight: 500;
-  text-align: center;
-  color: var(--cor-letra);
-  width: 45%;
-  background-color: var(--cor-fundo-t);
+
+#iconsetahome{
+  width: clamp(10px, 7vw, 60px);
+  height: auto;
 }
 
 #homebtn{
   display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
   padding-top: 10px;
-  flex-direction: row;
-  justify-content:space-around;
 }
+
+#hometxtbtn1,
+#hometxtbtn2{
+  flex: 1;
+  min-width: 80px;
+  padding: 6px;
+  border-radius: 20px;
+  font-weight:bold;
+  font-size: clamp(10px, 2vw, 18px);
+  text-align: center;
+  color: var(--cor-letra);
+}
+
+#hometxtbtn1{
+  background-color: var(--cor-fundo-t-sec);
+}
+
+#hometxtbtn2{
+  background-color: var(--cor-fundo-t);
+}
+
 #homeDimg{
+  flex: 1;
+  min-width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #imagehome{
-  width: 100%;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
 }
 
 #homeseta{
   display: flex;
-  justify-content: center; 
-  margin-top: 30%;
+  justify-content: center;
+  margin-top: 8%;
   text-decoration: none;
 }
+
 #homeiconseta{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 50px;
   height: 50px;
   background-color: var(--cor-fundo-t);
   border-radius: 10px;
   color: var(--cor-letra);
   font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* ================= SOBRE ================= */
 
 #sobrediv{
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
-  height: 45vw;
+  align-items: center;
+  padding: 100px 0;
 }
+
+#subdivsobre,
+#subdivsobreimg{
+  flex: 1;
+  min-width: 280px;
+}
+
 #subdivsobre{
   display: flex;
   flex-direction: column;
-  width: 50%;
   justify-content: center;
   background-image: url('./img/fundosobre.png');
-  background-size: contain;  
+  background-size: contain;
 }
 
 #subdivsobreimg{
   margin-top: 100px;
-  width: 45%;
 }
+
 #titletxtsobre{
   width: 40%;
   color: var(--cor-letra);
 }
+
 #sobretxtme{
   color: var(--cor-letra-sec);
 }
-#txtsobreme1{
- color: var(--cor-letra);
 
+#txtsobreme1{
+  white-space: nowrap;
+  color: var(--cor-letra);
 }
+
 #txtsobre{
   margin: 10px;
-  width: 80%;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 600px;
   font-size: medium;
   font-weight: 400;
   color: var(--cor-letra);
 }
+
+/* ================= PROJETOS ================= */
 
 #divprojetos{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 70vh;
+  padding: 100px 0;
   background-image: url('./img/fundoproje.png');
   background-size: contain;
-
 }
+
 #subdivproje{
   width: 80%;
 }
-#subdivproop{
-  margin: 20px;
-}
+
 #suboproptions{
   color: var(--cor-letra);
   background-color: var(--cor-fundo-t-sec);
-  font-size: medium;
+  font-size: clamp(8px, 2vw, 16px);
   font-weight: 600;
-  margin-left: 10px;
+  margin: 10px;
   padding: 10px;
   border-radius: 15px;
+}
+#txtdescPro{
+  color:var(--cor-letra);
+  margin: 10px;
 }
 #subdivprojetok{
   display: flex;
   width: 100%;
-  height: 25vh;
   align-items: center;
   justify-content: center;
 }
-.carrossel-container {
-  width: 900px;        
-  overflow: hidden;
+
+.carrossel-container{
+  width: 100%;
+  max-width: 900px;
   margin: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
 }
 
-#carrosel-projet {
+/* Remove barra visual */
+.carrossel-container::-webkit-scrollbar{
+  height: 6px;
+}
+
+.carrossel-container::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.carrossel-container::-webkit-scrollbar-thumb{
+  background: var(--cor-fundo-t-sec);
+  border-radius: 10px;
+}
+#carrosel-projet{
   display: flex;
-  gap: 10px;
+  gap: 20px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.slide {
+.slide{
   min-width: 200px;
-  justify-content: center ;
   text-align: center;
-  padding: 15px ;
+  padding: 15px;
   border-radius: 10px;
 }
 
-.slide img {
+.slide img{
   width: 100%;
   display: block;
 }
 
+/* ================= CONTATO ================= */
+
 #divcontac{
   display: flex;
-  height: 500px;
-  margin:10px;
-  justify-content:space-around;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+  padding: 100px 0; /
+}
+
+#div1contact,
+#div2contact{
+  flex: 1;
+  min-width: 280px;
 }
 
 #div1contact{
-  width: 40%;
-  height: 350px;
+  width: 100%;
+  max-width: 500px; 
+  aspect-ratio: 4 / 3; 
   background-image: url('./img/contact.png');
   background-size: cover;
-}
-#titlecontac1{
-  margin: 10px;
-  color:var(--cor-letra);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-#titlecontac2{
-  margin: 10px;
-  color:var(--cor-letra-sec);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-#div2contact{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45%;
-  height: 400px;
-}
-#contform{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-#divcontNE{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-}
-#inpcontnome{
-  width: 90%;
-  color: var(--cor-letra);
-  background-color: var(--cor-fundo-t);
-  border-radius: 10px;
-  padding: 5px;
-}
-#inpcontemail{
-  width: 90%;
-  color: var(--cor-letra);
-  background-color: var(--cor-fundo-t);
-  border-radius: 10px;
-  padding: 5px;
-}
-#divcontMsg{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#divbtnsend{
-  align-items: flex-start;
-  margin: 15px;
-  width: 95%;
-}
-#contmsg{
+#titlecontac1{
   color: var(--cor-letra);
-  background-color: var(--cor-fundo-t);
+}
+#titlecontac2{
+  color: var(--cor-letra-sec);
+}
+
+#contform{
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  padding: 25px;
+}
+
+/* LINHA NOME + EMAIL */
+#divcontNE{
+  display: flex;
+  gap: 20px;
   width: 100%;
-  margin: 10px;
-  height: 200px;
-  border-radius: 10px;
-  padding: 10px;
-  
 }
-#btnsendform{
-  width: 45%;
-  background-color: var(--cor-letra-sec);
-  border-radius: 15px;
-  padding: 5px;
+
+#divcontNE div{
+  width: 100%;
 }
-#txtbtnform{
-  font-size: medium;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 700;
+
+/* INPUTS */
+#inpcontnome,
+#inpcontemail{
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid var(--cor-linha);
+  background-color: var(--cor-fundo-t);
   color: var(--cor-letra);
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
 }
+
+/* EFEITO AO CLICAR */
+#inpcontnome:focus,
+#inpcontemail:focus,
+#contmsg:focus{
+  border: 1px solid var(--cor-fundo-t-sec);
+  box-shadow: 0 0 10px var(--cor-fundo-t-sec);
+}
+
+/* TEXTAREA */
+#contmsg{
+  width: 100%;
+  height: 180px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid var(--cor-linha);
+  background-color: var(--cor-fundo-t);
+  color: var(--cor-letra);
+  resize: none;
+  font-size: 14px;
+  outline: none;
+  margin-top:10px;
+  transition: 0.3s ease;
+}
+
+/* BOTÃO */
+#btnsendform{
+  width: 200px;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(90deg, var(--cor-fundo-t-sec), rgba(0,242,255,0.3));
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#btnsendform:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px var(--cor-fundo-t-sec);
+}
+
+/* TEXTO BOTÃO */
+#txtbtnform{
+  color: var(--cor-letra);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px){
+  #divcontNE{
+    flex-direction: column;
+  }
+
+  #btnsendform{
+    width: 100%;
+  }
+}
+
+
+/* ================= FOOTER ================= */
+
 #divbottom{
   display: flex;
   justify-content: center;
-  height: 200px;
-  align-items: center;
+  padding: 60px 0; /* removido height fixo */
 }
+
 #divbotmenulink{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
+
 #txtbotmelink{
   font-size: larger;
   font-weight: 400;
   color: var(--cor-letra);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding: 10px;
-  color: var(--cor-letra);
   text-decoration: none;
 }
-#txtbotmelinkicon{
-  color: var(--cor-letra);
-}
-::placeholder {
-  color: var(--cor-letra);
-}
-#divbtnbottom{
-  margin: 20px;
-}
+
 #btnicons{
   background-color: #333;
   padding: 12px;
@@ -364,7 +463,14 @@
   color: var(--cor-letra);
   margin: 10px;
 }
+
 #divterms{
   width: 100%;
   text-align: end;
+}
+#txtterms{
+  color:var(--cor-letra);
+}
+::placeholder{
+  color: var(--cor-letra);
 }
