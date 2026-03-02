@@ -137,6 +137,7 @@
   font-size: clamp(10px, 2vw, 18px);
   text-align: center;
   color: var(--cor-letra);
+  text-decoration: none;
 }
 
 #hometxtbtn1{
@@ -145,6 +146,11 @@
 
 #hometxtbtn2{
   background-color: var(--cor-fundo-t);
+}
+#hometxtbtn1:hover,
+#hometxtbtn2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--cor-fundo-t-sec);
 }
 
 #homeDimg{
@@ -200,7 +206,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('./img/fundosobre.png');
+  background-image: url('https://raw.githubusercontent.com/fabiodtna/Portifolio/refs/heads/main/img/fundosobre.png');
   background-size: contain;
 }
 
@@ -237,7 +243,7 @@
   align-items: center;
   justify-content: center;
   padding: 100px 0;
-  background-image: url('./img/fundoproje.png');
+  background-image: url('https://raw.githubusercontent.com/fabiodtna/Portifolio/refs/heads/main/img/fundoproje.png');
   background-size: contain;
 }
 
@@ -329,7 +335,7 @@
   width: 100%;
   max-width: 500px; 
   aspect-ratio: 4 / 3; 
-  background-image: url('./img/contact.png');
+  background-image: url('https://raw.githubusercontent.com/fabiodtna/Portifolio/refs/heads/main/img/contact.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
