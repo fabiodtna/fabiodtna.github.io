@@ -39,10 +39,12 @@
 #headerNome{
   font-weight: 500;
   color: var(--cor-letra);
+  font-size: clamp(18px, 4vw, 50px);
 }
 
 #headerop {
   margin: 10px;
+  font-size: clamp(14px, 2vw, 22px);
   font-size: medium;
   font-weight: 500;
   color: var(--cor-letra);
@@ -463,7 +465,7 @@
 }
 
 #txtbotmelink{
-  font-size: larger;
+  font-size: clamp(14px, 2vw, 22px);
   font-weight: 400;
   color: var(--cor-letra);
   padding: 10px;
