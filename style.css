@@ -263,7 +263,8 @@
 }
 #txtdescPro{
   color: var(--cor-letra);    
-  max-width: 650px;         
+  max-width: 650px;
+  font-weight: 500;
   margin: 20px auto;
   padding: 0 15px; 
   font-size: 18px;       
