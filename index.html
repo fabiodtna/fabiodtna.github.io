@@ -31,19 +31,7 @@
             animar();
           });
 
-          document.getElementById("btnsendform").addEventListener("click", function(e) {
-          e.preventDefault();
-        
-          Swal.fire({
-            icon: "info",
-            title: "Funcionalidade indisponível",
-            html: "Desculpa 😅<br><br>Esse formulário não funciona aqui porque o <b>GitHub Pages</b> não suporta <b>PHP</b>.",
-            confirmButtonText: "Ok"
-          });
-        });
-
-
-        document.getElementById("btnEnviar").addEventListener("click", function(e) {
+        document.getElementById("btnsendform").addEventListener("click", function(e) {
             e.preventDefault();
             alert("Desculpa 😅 Esse formulário não funciona aqui porque o GitHub Pages não suporta PHP.");
           });
