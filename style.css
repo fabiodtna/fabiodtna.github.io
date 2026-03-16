@@ -262,8 +262,13 @@
   border-radius: 15px;
 }
 #txtdescPro{
-  color:var(--cor-letra);
-  margin: 10px;
+  color: var(--cor-letra);
+  margin: 20px auto;
+  max-width: 650px;
+  padding: 0 15px;
+  line-height: 1.7;
+  font-size: 17px;
+  text-align: center;
 }
 #subdivprojetok{
   display: flex;
